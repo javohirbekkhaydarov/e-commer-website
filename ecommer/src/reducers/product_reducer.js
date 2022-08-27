@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { SIDEBAR_OPEN, SIDEBAR_CLOSE } from "../actions";
 
-const product_reducer = () => {
-  return (
-    <div>product_reducer</div>
-  )
-}
+const product_reducer = (state, action) => {
+  if (action.type === SIDEBAR_OPEN) {
+    return { ...state, isSidebarOpen: true };
+  }
+  if (action.type === SIDEBAR_CLOSE) {
+    return { ...state, isSidebarOpen: false };
+  }
+  throw new Error(`No matching ${action.type} = action type`);
+};
 
-export default product_reducer
+export default product_reducer;
