@@ -6,13 +6,18 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { link, links } from "../utils/constant";
 import CartButtons from "./CartButtons";
 import Navbar from "./Navbar";
+import { useProductsContext } from "../context/products_context";
+
 const Sidebar = () => {
+  const { isSideBarOpen, closeSideBar } = useProductsContext();
   return (
     <SidebarContainer>
-      <aside className="sidebar">
+      <aside
+        className={`${isSideBarOpen ? "sidebar show-sidebar" : "sidebar"}`}
+      >
         <div className="sidebar-header">
           <img src={logo} alt="logo" className="logo" />
-          <button className="colse-btn">
+          <button className="colse-btn" onClick={closeSideBar}>
             <FaTimes />
           </button>
         </div>
