@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { link, links } from "../utils/constant";
+import CartButtons from "./CartButtons";
 
 const Navbar = () => {
   return (
@@ -27,7 +28,7 @@ const Navbar = () => {
             );
           })}
         </ul>
-        
+        <CartButtons />
       </div>
     </NavContainer>
   );
