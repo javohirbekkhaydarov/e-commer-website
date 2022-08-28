@@ -9,19 +9,19 @@ import Navbar from "./Navbar";
 import { useProductsContext } from "../context/products_context";
 
 const Sidebar = () => {
-  const { isSideBarOpen, closeSideBar } = useProductsContext();
+  const { isSidebarOpen, closeSidebar } = useProductsContext();
   return (
     <SidebarContainer>
       <aside
-        className={`${isSideBarOpen ? "sidebar show-sidebar" : "sidebar"}`}
+        className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}
       >
         <div className="sidebar-header">
           <img src={logo} alt="logo" className="logo" />
-          <button className="colse-btn" onClick={closeSideBar}>
+          <button className="close-btn" onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
-        <ul className="nav-links">
+        <ul className="links">
           {links.map((link) => {
             const { id, text, url } = link;
             return (
