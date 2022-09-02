@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
 import {
-  Home,
+  HomePage,
   Products,
   SingleProduct,
   About,
@@ -19,7 +19,7 @@ const App = () => {
         <Navbar />
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="*" element={<Error />} />

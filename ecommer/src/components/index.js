@@ -6,9 +6,12 @@ import StripeCheckout from "./StripeCheckout";
 import CartContent from "./CartContent";
 import Contact from "./Contact";
 import Hero from "./Hero";
-import HomePage from "./HomePage";
+import HomePage from "../pages/HomePage";
 import Services from "./Services";
 import FuturedProducts from "./FuturedProducts";
+import Loading from "./Loading";
+import Error from "./Error";
+
 export {
   Navbar,
   Sidebar,
@@ -21,4 +24,6 @@ export {
   HomePage,
   Services,
   FuturedProducts,
+  Loading,
+  Error,
 };

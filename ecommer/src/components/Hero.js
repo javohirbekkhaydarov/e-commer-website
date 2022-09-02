@@ -1,9 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import bg from "../assets/hero-bcg-2.jpeg";
+import bg2 from "../assets/hero-bcg-2.jpeg";
+import bg from "../assets/hero-bcg.jpeg";
 const Hero = () => {
-  return <div>Hero</div>;
+  return (
+    <Wrapper className="section-center">
+      <article className="content">
+        <h1>
+          design your <br />
+          comfort zone
+        </h1>
+        <p>
+          Each of us has our own boundaries and comfort zones. Most of us don’t
+          often step out of this, as we feel safe and secure in what we know.
+          However, sometimes, the best personal and professional experiences we
+          can have in our lives are when we completely step outside our comfort
+          zone.
+        </p>
+        <Link to="/products" className="btn btn-hero-btn">
+          shop now
+        </Link>
+      </article>
+      <article className="img-container">
+            <img src={bg} alt="table" className="main-img" />
+            <img src={bg2} alt="anicent" className="accent-img" />
+
+      </article>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
