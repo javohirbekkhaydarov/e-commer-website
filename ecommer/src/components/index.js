@@ -11,6 +11,7 @@ import Services from "./Services";
 import FuturedProducts from "./FuturedProducts";
 import Loading from "./Loading";
 import Error from "./Error";
+import Product from "./Product";
 
 export {
   Navbar,
@@ -26,4 +27,5 @@ export {
   FuturedProducts,
   Loading,
   Error,
+  Product,
 };
