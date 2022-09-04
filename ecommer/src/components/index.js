@@ -8,7 +8,7 @@ import Contact from "./Contact";
 import Hero from "./Hero";
 import HomePage from "../pages/HomePage";
 import Services from "./Services";
-import FuturedProducts from "./FuturedProducts";
+import FeaturedProducts from "./FeaturedProducts";
 import Loading from "./Loading";
 import Error from "./Error";
 import Product from "./Product";
@@ -24,7 +24,7 @@ export {
   Hero,
   HomePage,
   Services,
-  FuturedProducts,
+  FeaturedProducts,
   Loading,
   Error,
   Product,

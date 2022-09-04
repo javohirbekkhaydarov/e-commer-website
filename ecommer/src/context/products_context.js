@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import reducer from "../reducers/product_reducer";
-import { products_url as url } from "../utils/con stant";
+import { products_url as url } from "../utils/constant";
 
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_ERROR
 } from "../actions";
 
 const initialState = {
@@ -43,7 +44,7 @@ export const ProductsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchProducts(ur)
+    fetchProducts(url)
   }, [])
   
 
