@@ -8,7 +8,10 @@ import {
   SIDEBAR_CLOSE,
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
-  GET_PRODUCTS_ERROR
+  GET_PRODUCTS_ERROR,
+  GET_SINGLE_PRODUCT_BEGIN,
+  GET_SINGLE_PRODUCT_ERROR,
+  GET_SINGLE_PRODUCT_SUCCESS,
 } from "../actions";
 
 const initialState = {
@@ -42,14 +45,31 @@ export const ProductsProvider = ({ children }) => {
       dispatch({ type: GET_PRODUCTS_ERROR });
     }
   };
+  const fetchSingleProduct = async (url) => {
+    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
+    try {
+      const response = await axios.get(url);
+      const singleProduct = response.data;
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
+    } catch {
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+    }
+  };
 
   useEffect(() => {
-    fetchProducts(url)
-  }, [])
-  
+    fetchProducts(url);
+  }, []);
 
   return (
-    <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar , fetchProducts}}>
+    <ProductsContext.Provider
+      value={{
+        ...state,
+        openSidebar,
+        closeSidebar,
+        fetchProducts,
+        fetchSingleProduct,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );
