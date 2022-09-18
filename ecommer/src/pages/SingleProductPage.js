@@ -6,26 +6,27 @@ import { formatPrice } from "../utils/helpers";
 import {
   Loading,
   Error,
-  PageHero,
   ProductImage,
+  AddToCart,
   Stars,
-  AddtoCart,
+  PageHero,
 } from "../components";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
 const SingleProductPage = () => {
-  const { id } = useParams;
+  const { id } = useParams();
   const history = useNavigate();
 
   const {
     single_product_loading: loading,
     single_product_error: error,
     single_product: product,
-    fetchSinleProduct,
+    fetchSingleProduct,
   } = useProductsContext();
 
   useEffect(() => {
-    fetchSinleProduct(`${url}${id}`);
+    fetchSingleProduct(`${url}${id}`);
   }, [id]);
 
   useEffect(() => {
@@ -34,14 +35,16 @@ const SingleProductPage = () => {
         history.push("/");
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   if (loading) {
     return <Loading />;
   }
   if (error) {
-    <Error />;
+    return <Error />;
   }
+
   const {
     name,
     price,
@@ -53,15 +56,21 @@ const SingleProductPage = () => {
     company,
     images,
   } = product;
+
   return (
     <Wrapper>
       <PageHero title={name} product />
-      <div className="section section-center">
+      <div className="section section-center page">
         <Link to="/products" className="btn">
           back to products
         </Link>
         <div className="product-center">
           <ProductImage images={images} />
+          <section className="content">
+            <h2>{name}</h2>
+            <h3>{stars}</h3>
+            <h4> {price} </h4>
+          </section>
         </div>
       </div>
     </Wrapper>
