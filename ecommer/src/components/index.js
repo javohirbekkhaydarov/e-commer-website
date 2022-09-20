@@ -12,9 +12,10 @@ import FeaturedProducts from "./FeaturedProducts";
 import Loading from "./Loading";
 import Error from "./Error";
 import Product from "./Product";
-import AddtoCart from "./AddtoCart";
+import AddToCart from "./AddtoCart";
 import Stars from "./Stars";
 import ProductImage from "./ProductImage";
+import AmountButton from "./AmountButton";
 export {
   Navbar,
   Sidebar,
@@ -30,7 +31,8 @@ export {
   Loading,
   Error,
   Product,
-  AddtoCart,
+  AddToCart,
   ProductImage,
   Stars,
+  AmountButton,
 };
