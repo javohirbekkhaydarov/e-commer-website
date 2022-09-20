@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constant";
 import { formatPrice } from "../utils/helpers";
+
 import {
   Loading,
   Error,
@@ -67,8 +68,24 @@ const SingleProductPage = () => {
           <ProductImage images={images} />
           <section className="content">
             <h2>{name}</h2>
-            <h3>{stars}</h3>
-            <h4> {price} </h4>
+            <Stars stars={stars} reviews={reviews} />
+            <h5 className="price"> {formatPrice(price)} </h5>
+            <p className="desc"> {description} </p>
+            <p className="info">
+              <span> Avaiable:</span>
+              {stock > 0 ? "In stock" : "out of stock"}
+            </p>
+            <p className="info">
+              <span>ID</span>
+
+              {sku}
+            </p>
+            <p className="info">
+              <span>Brand</span>
+              {company}
+            </p>
+            <hr />
+            {stock > 0 && <AddToCart product={product} className="btn" />}
           </section>
         </div>
       </div>
