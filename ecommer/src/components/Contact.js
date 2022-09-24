@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styled from "styled-components";
 
@@ -10,10 +10,8 @@ const Contact = () => {
 
         <div className="content">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit atque
-            vel laborum deleniti similique officia temporibus dicta unde minima
-            aliquam. Non quae nesciunt autem dolorem. Minus ad quasi magnam
-            incidunt!
+            If you want to get 20% discount. contact us and leave your email. We
+            will call you
           </p>
           <form
             action="https://formspree.io/f/mqkjedag"
