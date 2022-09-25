@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -10,14 +10,25 @@ import { useProductsContext } from "../context/products_context";
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
+
+  // when i toggle menuOpen , **my sidebar** (mobile Menu) show/hides;
+
   return (
     <SidebarContainer>
       <aside
-        className={`${isSidebarOpen ? "sidebar show-sidebar " : "sidebar"}`}
+        className={`${
+          isSidebarOpen
+            ? `sidebar show-sidebar  ${(document.body.style.overflow =
+                "hidden")}}`
+            : "sidebar"
+        }
+      
+        
+        `}
       >
         <div className="sidebar-header">
           <img src={logo} alt="logo" className="logo" />
-          <button className="close-btn" onClick={closeSidebar}>
+          <button className={"close-btn"} onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
