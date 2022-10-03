@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { link, links } from "../utils/constant";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "../context/products_context";
+import {motion} from "framer-motion"
 const Navbar = () => {
   const { openSidebar } = useProductsContext();
   return (
@@ -23,9 +24,9 @@ const Navbar = () => {
           {links.map((link) => {
             const { id, text, url } = link;
             return (
-              <li key={id}>
+              <motion.li key={id}>
                 <Link to={url}>{text}</Link>
-              </li>
+              </motion.li>
             );
           })}
         </ul>

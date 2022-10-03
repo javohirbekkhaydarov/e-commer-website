@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Filters, ProductList, Sort, PageHero } from "../components/";
-
+import { motion } from "framer-motion";
+import { pageAnimation } from "../Animation";
 const ProductsPage = () => {
   return (
     <main>
       <PageHero title="products" />
-      <Wrapper className="page">
+      <Wrapper className="page" exit="exit" variants={pageAnimation} initial="hidden" animate="show" >
         <div className="section-center products">
           <Filters />
           <div>
@@ -19,7 +20,7 @@ const ProductsPage = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   .products {
     display: grid;
     gap: 3rem 1.5rem;

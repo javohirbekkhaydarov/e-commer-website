@@ -3,10 +3,18 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import bg2 from "../assets/hero-bcg-2.jpeg";
 import bg from "../assets/hero-bcg.jpeg";
+import { motion, useViewportScroll } from "framer-motion";
 const Hero = () => {
+  const { scrollYProgress } = useViewportScroll();
   return (
+    
     <Wrapper className="section-center">
-      <article className="content">
+      <motion.article
+        className="content"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1>
           design your <br />
           comfort zone
@@ -18,14 +26,19 @@ const Hero = () => {
           can have in our lives are when we completely step outside our comfort
           zone.
         </p>
-        <Link to="/products" className="btn btn-hero-btn">
-          shop now
+        <Link to="/products">
+          <motion.button
+            className="btn btn-hero-btn"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            shop now
+          </motion.button>
         </Link>
-      </article>
+      </motion.article>
       <article className="img-container">
-            <img src={bg} alt="table" className="main-img" />
-            <img src={bg2} alt="anicent" className="accent-img" />
-
+        <img src={bg} alt="table" className="main-img" />
+        <img src={bg2} alt="anicent" className="accent-img" />
       </article>
     </Wrapper>
   );

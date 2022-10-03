@@ -2,11 +2,19 @@ import React from "react";
 import PageHero from "../components/PageHero";
 import aboutImg from "../assets/hero-bcg.jpeg";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { pageAnimation } from "../Animation";
 const AboutPage = () => {
   return (
     <main>
       <PageHero title="about" />
-      <Wrapper className="page section section-center">
+      <Wrapper
+      exit="exit"
+        className="page section section-center"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+      >
         <img src={aboutImg} alt="about img" />
         <article>
           <div className="title">
@@ -29,7 +37,7 @@ const AboutPage = () => {
   );
 };
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.div)`
   display: grid;
   gap: 4rem;
   img {
