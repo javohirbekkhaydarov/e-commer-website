@@ -5,7 +5,8 @@ import styled from "styled-components";
 import Error from "./Error";
 import Loading from "./Loading";
 import Product from "./Product";
-
+import { motion } from "framer-motion";
+import { pageAnimation } from "../Animation";
 const FeaturedProducts = () => {
   const {
     products_loading: loading,
@@ -20,7 +21,13 @@ const FeaturedProducts = () => {
   }
 
   return (
-    <Wrapper className="section">
+    <Wrapper
+      className="section"
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+    >
       <div className="title">
         <h2>featured products</h2>
         <div className="underline"></div>
@@ -37,7 +44,7 @@ const FeaturedProducts = () => {
   );
 };
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   background: var(--clr-grey-10);
   .featured {
     margin: 4rem auto;

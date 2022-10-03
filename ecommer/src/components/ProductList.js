@@ -4,7 +4,7 @@ import GridView from "./GridView";
 import ListView from "./ListView";
 
 const ProductList = () => {
-  return <GridView />;
+  return <ListView />;
 };
 
 export default ProductList;
