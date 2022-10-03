@@ -25,6 +25,13 @@ const Contact = () => {
               placeholder="enter your email"
               required
             />
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="enter your question"
+            />
+
             <button type="submit" className="submit-btn">
               subscribe
             </button>
