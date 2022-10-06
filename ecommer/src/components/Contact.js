@@ -43,6 +43,10 @@ const Contact = () => {
 };
 
 const Wrapper = styled.section`
+  form {
+    display: flex;
+    flex-direction: column;
+  }
   padding: 5rem 0;
   h3 {
     text-transform: none;
@@ -55,29 +59,46 @@ const Wrapper = styled.section`
   .contact-form {
     width: 90vw;
     max-width: 500px;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
   }
-  .form-input,
+
   .submit-btn {
     font-size: 1rem;
     padding: 0.5rem 1rem;
     border: 2px solid var(--clr-black);
+    margin: 1rem auto;
+    width: 70%;
+    text-align: center;
   }
+
   .form-input {
-    border-right: none;
-    color: var(--clr-grey-3);
-    border-top-left-radius: var(--radius);
-    border-bottom-left-radius: var(--radius);
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
   }
+
+  .form-input:focus {
+    border-color: var(--clr-primary-5);
+
+    box-shadow: var(--clr-primary-5);
+  }
+
+  //button
+
   .submit-btn {
     border-top-right-radius: var(--radius);
     border-bottom-right-radius: var(--radius);
   }
-  .form-input::placeholder {
-    color: var(--clr-black);
-    text-transform: capitalize;
-  }
+
   .submit-btn {
     background: var(--clr-primary-5);
     text-transform: capitalize;
@@ -88,6 +109,250 @@ const Wrapper = styled.section`
   }
   .submit-btn:hover {
     color: var(--clr-white);
+  }
+  @keyframes button-loading {
+    0% {
+    }
+
+    20% {
+      color: transparent;
+      transform: scale(1, 1);
+    }
+
+    40% {
+      border-color: #5585ff;
+      background-color: transparent;
+      transform: scale(1, 1);
+    }
+
+    60% {
+      transform: scale(0.7, 1.1);
+
+      margin-left: 1.25rem;
+      width: 2.5rem;
+      text-indent: -0.6125rem;
+
+      color: transparent;
+      border-color: #5585ff;
+      background-color: #5585ff;
+    }
+
+    80% {
+      transform: scale(1, 1);
+    }
+
+    100% {
+      margin-left: 1.25rem;
+      width: 2.5rem;
+
+      background-color: #5585ff;
+      border-color: #5585ff;
+      color: transparent;
+    }
+  }
+
+  @keyframes button-dot-intro {
+    0% {
+      opacity: 0;
+    }
+
+    60% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+
+    100% {
+      transform: scale(0.75, 0.75);
+    }
+  }
+
+  @keyframes button-dot-pulse {
+    0% {
+      opacity: 1;
+      transform: scale(0.75, 0.75);
+    }
+
+    15% {
+      transform: scale(0.85, 0.85);
+    }
+
+    45% {
+      transform: scale(0.75, 0.75);
+    }
+
+    55% {
+      transform: scale(0.95, 0.95);
+    }
+
+    85% {
+      transform: scale(0.75, 0.75);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(0.75, 0.75);
+    }
+  }
+
+  @keyframes button-ready {
+    0% {
+      margin-left: 1.25rem;
+      width: 2.5rem;
+    }
+
+    10% {
+      background-color: #5585ff;
+      border-color: #5585ff;
+    }
+
+    70% {
+      margin: 0;
+      width: 7.25rem;
+      background-color: #fff;
+      transform: scale(1.1, 1.1);
+    }
+
+    100% {
+      margin: 0;
+      width: 7rem;
+      border-color: #8cce1e;
+      background-color: #fff;
+    }
+  }
+
+  @keyframes button-dot-outro {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(1, 1);
+    }
+  }
+
+  @keyframes button-ready-label {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .submit-btn {
+    position: relative;
+    overflow: hidden;
+    width: 10rem;
+    background: var(--clr-primary-5);
+    border: 2px solid var(--clr-primary-7);
+    color: var(--clr-black);
+    cursor: pointer;
+    line-height: 2;
+    margin: 2 auto;
+    padding: 0;
+    border-radius: 1.5rem;
+    font-size: 1.125rem;
+    text-transform: lowercase;
+    outline: none;
+    transition: transform 0.125s;
+
+    &:active {
+      transform: scale(0.9, 0.9);
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      opacity: 0;
+
+      border-radius: 50%;
+      background-color: #fff;
+      top: 50%;
+      left: 50%;
+      margin-top: -1.125rem;
+      margin-left: -1.125rem;
+      width: 2.25rem;
+      height: 2.25rem;
+
+      content: "";
+      z-index: 1;
+    }
+
+    &.loading {
+      animation: button-loading 0.5s forwards;
+    }
+
+    &.loading:before {
+      opacity: 1;
+      animation: button-dot-intro 0.5s forwards;
+    }
+
+    &.loading:after {
+      opacity: 0;
+      animation: button-dot-pulse 1.5s infinite 0.5s;
+    }
+
+    &.ready {
+      text-indent: 0;
+      color: transparent;
+      background-color: #5585ff;
+      animation: button-ready 0.333s forwards;
+    }
+
+    &.ready:before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: auto;
+      margin: 0;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background-color: transparent;
+      color: #8cce1e;
+      content: "ready";
+      opacity: 0;
+      z-index: 2;
+      animation: button-ready-label 0.5s forwards 0.275s;
+    }
+
+    &.ready:after {
+      opacity: 1;
+      animation: button-dot-outro 0.333s;
+    }
+  }
+
+  #message {
+    display: block;
+    margin-top: 10px;
+
+    width: 500px;
+    height: 100px;
+    resize: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+    border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
+    border-image: none;
+    border-radius: 6px 6px 6px 6px;
+    border-style: none solid solid none;
+    border-width: medium 1px 1px medium;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    color: #555555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.4em;
+    padding: 5px 8px;
+    transition: background-color 0.2s ease 0s;
+  }
+
+  textarea:focus {
+    background: none repeat scroll 0 0 #ffffff;
+    outline-width: 0;
   }
   @media (min-width: 992px) {
     .content {

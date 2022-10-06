@@ -8,7 +8,7 @@ const ErrorPage = () => {
       <section id="section">
         <img src={gif} alt="" />
         <Link to="/" className="btn" id="btn">
-          go home
+          back to home
         </Link>
       </section>
     </Wrapper>
@@ -18,7 +18,7 @@ const Wrapper = styled.main`
   background: #f1f5f9;
   display: flex;
   justify-content: center;
-  flex-driection: column;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   margin: 0 auto;
@@ -39,7 +39,6 @@ const Wrapper = styled.main`
   }
   #btn {
     margin-top: 2rem;
-
   }
 `;
 export default ErrorPage;
