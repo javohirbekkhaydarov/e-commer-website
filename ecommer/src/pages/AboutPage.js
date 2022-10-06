@@ -28,7 +28,7 @@ const AboutPage = () => {
               engagement. This application is a best fit for anyone looking to
               launch their offline business online or planning a new ecommerce
               startup, helping you to reach a mass audience, increase revenue
-              and build brands.
+              and build new  brands.
             </p>
           </div>
         </article>
