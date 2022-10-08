@@ -5,19 +5,19 @@ import ListView from "./ListView";
 
 const ProductList = () => {
   const { filtered_products: products, grid_view } = useFilterContext();
-  if(products.length < 1) {
-    return(
-      <h5 style={{textTransform: 'none'}}>
-       Oops , no products please enter other product...
+  if (products.length < 1) {
+    return (
+      <h5 style={{ textTransform: "none" }}>
+        Sorry, no products matched your search...
       </h5>
-    )
+    );
   }
-  if(grid_view === false) {
-    return <ListView products={products}/>
+
+  if (grid_view === false) {
+    return <ListView products={products} />;
   }
-  return <GridView   products={products}>
-    product list
-  </GridView>;
+
+  return <GridView products={products}>product list</GridView>;
 };
 
 export default ProductList;
