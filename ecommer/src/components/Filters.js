@@ -24,7 +24,63 @@ const Filters = () => {
   const categories = getUniqueValues(all_products, "category");
   const companies = getUniqueValues(all_products, "company");
   const colors = getUniqueValues(all_products, "colors");
-  return <Wrapper></Wrapper>;
+
+  return (
+    <Wrapper>
+      <div className="content">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="form-control">
+            <input
+              className="search-input"
+              type="text"
+              name="text"
+              placeholder="search"
+              value={text}
+              onChange={updateFilters}
+              autoComplete="off"
+            />
+          </div>
+          <div className="form-control">
+            <h5>category</h5>{" "}
+            {categories.map((c, index) => {
+              return (
+                <button
+                  key={index}
+                  onClick={updateFilters}
+                  type="button"
+                  name="category"
+                  className={`${
+                    category === c.toLowerCase() ? "active" : null
+                  }`}
+                >
+                  {c}
+                </button>
+              );
+            })}
+          </div>
+          {/* form company */}
+          <div className="form-control">
+            <h5> company </h5>
+            <select
+              name="company"
+              id="company"
+              onChange={updateFilters}
+              className="company sort-input"
+              value={company}
+            >
+              {companies.map((c, index) => {
+                return (
+                  <option key={index} value={c}>
+                    {c}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
@@ -43,6 +99,12 @@ const Wrapper = styled.section`
   }
   .search-input::placeholder {
     text-transform: capitalize;
+  }
+  .sort-input {
+    border-color: transparent;
+    font-size: 1rem;
+    text-transform: capitalize;
+    padding: 0.25rem 0.5rem;
   }
   button {
     display: block;
