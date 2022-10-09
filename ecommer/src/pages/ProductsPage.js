@@ -7,7 +7,13 @@ const ProductsPage = () => {
   return (
     <main>
       <PageHero title="products" />
-      <Wrapper className="page" exit="exit" variants={pageAnimation} initial="hidden" animate="show" >
+      <Wrapper
+        className="page"
+        exit="exit"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+      >
         <div className="section-center products">
           <Filters />
           <div>
@@ -20,15 +26,15 @@ const ProductsPage = () => {
   );
 };
 
-const Wrapper = styled(motion.div)`
+const Wrapper = styled.div`
   .products {
     display: grid;
     gap: 3rem 1.5rem;
     margin: 4rem auto;
-    @media (min-width: 768px) {
-      .products {
-        grid-template-columns: 200px 1fr;
-      }
+  }
+  @media (min-width: 768px) {
+    .products {
+      grid-template-columns: 200px 1fr;
     }
   }
 `;

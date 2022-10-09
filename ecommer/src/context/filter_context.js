@@ -47,6 +47,7 @@ export const FilterProvider = ({ children }) => {
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW });
   };
+
   const setListView = () => {
     dispatch({ type: SET_LISTVIEW });
   };
@@ -55,7 +56,6 @@ export const FilterProvider = ({ children }) => {
     const value = e.target.value;
     dispatch({ type: UPDATE_SORT, payload: value });
   };
-
   const updateFilters = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -77,7 +77,6 @@ export const FilterProvider = ({ children }) => {
   const clearFilters = () => {
     dispatch({ type: CLEAR_FILTERS });
   };
-
   return (
     <FilterContext.Provider
       value={{
