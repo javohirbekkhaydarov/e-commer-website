@@ -11,8 +11,6 @@ import { useProductsContext } from "../context/products_context";
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
 
-  // when i toggle menuOpen , **my sidebar** (mobile Menu) show/hides;
-
   return (
     <SidebarContainer>
       <aside
@@ -20,7 +18,7 @@ const Sidebar = () => {
           isSidebarOpen
             ? `sidebar show-sidebar  ${(document.body.style.overflow =
                 "hidden")}}`
-            : "sidebar"
+            : `sidebar ${(document.body.style.overflow = "visible")}`
         }
       
         
@@ -37,7 +35,9 @@ const Sidebar = () => {
             const { id, text, url } = link;
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link onClick={closeSidebar} to={url}>
+                  {text}
+                </Link>
               </li>
             );
           })}
@@ -101,6 +101,7 @@ const SidebarContainer = styled.div`
     transition: var(--transition);
     transform: translateY(-100%);
     z-index: -1;
+    box-shadow: 11px 11px 11px 11px rgba(0, 0, 0, 0.1);
   }
   .show-sidebar {
     transform: translateY(0%);

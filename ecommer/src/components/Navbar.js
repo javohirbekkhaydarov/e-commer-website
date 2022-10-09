@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { link, links } from "../utils/constant";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "../context/products_context";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 const Navbar = () => {
   const { openSidebar } = useProductsContext();
   return (
@@ -58,6 +58,7 @@ const NavContainer = styled.nav`
   .nav-toggle {
     background: transparent;
     border: transparent;
+    
     color: var(--clr-primary-5);
     cursor: pointer;
     svg {
