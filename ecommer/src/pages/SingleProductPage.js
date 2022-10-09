@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constant";
 import { formatPrice } from "../utils/helpers";
-
 import {
   Loading,
   Error,
@@ -36,6 +35,7 @@ const SingleProductPage = () => {
         history.push("/");
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   if (loading) {
@@ -69,23 +69,22 @@ const SingleProductPage = () => {
           <section className="content">
             <h2>{name}</h2>
             <Stars stars={stars} reviews={reviews} />
-            <h5 className="price"> {formatPrice(price)} </h5>
+            <h5 className="price">{formatPrice(price)}</h5>
             <p className="desc"> {description} </p>
             <p className="info">
-              <span> Avaiable:</span>
+              <span>Available:</span>
               {stock > 0 ? "In stock" : "out of stock"}
             </p>
             <p className="info">
-              <span>ID</span>
-
+              <span>SKU:</span>
               {sku}
             </p>
             <p className="info">
-              <span>Brand</span>
+              <span>Brand:</span>
               {company}
             </p>
             <hr />
-            {stock > 0 && <AddToCart product={product} className="btn" />}
+            {stock > 0 && <AddToCart product={product} />}
           </section>
         </div>
       </div>
