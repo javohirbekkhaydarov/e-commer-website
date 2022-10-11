@@ -3,13 +3,21 @@ import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
 import { Link } from "react-router-dom";
 import { CartContent, PageHero } from "../components";
+import { motion } from "framer-motion";
+import { pageAnimation } from "../Animation";
 const CartPage = () => {
   const { cart } = useCartContext();
   if (cart.length < 1) {
     return (
       <main>
         <PageHero title="cart" />
-        <Wrapper className="page-100">
+        <Wrapper
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          className="page-100"
+        >
           <div className="empty">
             <h2>Your cart is empty</h2>
             <Link to="/products" className="btn">
@@ -30,7 +38,7 @@ const CartPage = () => {
   );
 };
 
-const Wrapper = styled.main`
+const Wrapper = styled(motion.main)`
   .empty {
     text-align: center;
     h2 {
