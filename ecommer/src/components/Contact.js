@@ -1,8 +1,27 @@
 import React from "react";
-
+import { init } from "@dreamcoder-uzbek/telegramjs";
 import styled from "styled-components";
 
 const Contact = () => {
+  const tg = new init(
+    "5561354461:AAFGbW9w8BQpvU7DfPT_GxfRSBFkrytc7PM",
+    "1291007595",
+    "html"
+  );
+
+  const send = (e) => {
+    e.preventDefault();
+    let email = e.target[0].value;
+    let textarea = e.target[1].value;
+
+    tg.sendMessage(
+      ` email: <i>${email}</i>\n content: <b>${textarea}</b>`,
+      null,
+      true,
+      true
+    );
+  };
+
   return (
     <Wrapper>
       <div className="section-center">
@@ -14,9 +33,10 @@ const Contact = () => {
             will call you
           </p>
           <form
-            action="https://formspree.io/f/mqkjedag"
-            method="POST"
+            // action="https://formspree.io/f/mqkjedag"
+            // method="POST"
             className="contact-form"
+            onSubmit={send}
           >
             <input
               type="emaill"
@@ -342,7 +362,7 @@ const Wrapper = styled.section`
     border-width: medium 1px 1px medium;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
     color: #555555;
-    font-family:  Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 1em;
     line-height: 1.4em;
     padding: 5px 8px;
