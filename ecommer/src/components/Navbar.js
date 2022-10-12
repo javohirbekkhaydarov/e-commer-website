@@ -44,14 +44,17 @@ const Navbar = () => {
           {/* change icon */}
 
           <button
+            type="button"
             id="btn"
             onClick={toggleTheme}
             className={`${theme === "dark-theme" ? "show" : "hidden"}`}
           >
+            &nbsp;
             <FaMoon />
           </button>
 
           <button
+            type="button"
             id="btn"
             className={`${theme === "dark-theme" ? "hidden" : "show"}`}
             onClick={toggleTheme}
@@ -83,6 +86,10 @@ const Navbar = () => {
 };
 
 const NavContainer = styled.nav`
+  transition: all 0.3s linear;
+  background: hsl(22, 31%, 81%);
+  color: #222;
+
   .hidden {
     display: none;
   }
@@ -116,6 +123,8 @@ const NavContainer = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: var(--clr-bcg);
+
     img {
       width: 175px;
       margin-left: -15px;
@@ -153,13 +162,13 @@ const NavContainer = styled.nav`
         margin: 0 0.5rem;
       }
       a {
-        color: var(--clr-grey-3);
+        color: var(--clr-grey-2);
         font-size: 1rem;
         text-transform: capitalize;
         letter-spacing: var(--spacing);
         padding: 0.5rem;
         &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
+          border-bottom: 2px solid var(--clr-primary-1);
         }
       }
     }

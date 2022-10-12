@@ -32,19 +32,16 @@ const Services = () => {
 };
 
 const Wrapper = styled.section`
-  h3,
-  h4 {
-    color: var(--clr-primary-1);
-  }
+ 
   padding: 5rem 0;
-  background: var(--clr-primary-10);
+ 
   .header h3 {
     margin-bottom: 2rem;
   }
   p {
     margin-bottom: 0;
     line-height: 1.8;
-    color: var(--clr-primary-3);
+   
   }
   .services-center {
     margin-top: 4rem;

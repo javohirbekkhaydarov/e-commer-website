@@ -55,7 +55,7 @@ const Wrapper = styled.section`
     line-height: 2;
     max-width: 45em;
     margin-bottom: 2rem;
-    color: var(--clr-grey-5);
+   
     font-size: 1rem;
   }
   @media (min-width: 992px) {
