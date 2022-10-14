@@ -3,16 +3,21 @@ import styled from "styled-components";
 import { formatPrice } from "../utils/helpers";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const Product = ({ image, name, price, id }) => {
   return (
     <Wrapper>
-      <div className="container">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <img src={image} alt={name} />
-        <Link to={`/products/${id}`} className="link">
+        <Link to={`/products/${id}`} className="link" key={id}>
           <FaSearch />
-        </Link>   
-      </div>
+        </Link>
+      </motion.div>
       <footer>
         <h5>{name}</h5>
         <p>{formatPrice(price)}</p>

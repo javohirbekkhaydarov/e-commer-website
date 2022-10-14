@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constant";
 import { formatPrice } from "../utils/helpers";
-
 import {
   Loading,
   Error,
@@ -14,6 +13,7 @@ import {
 } from "../components";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -36,6 +36,7 @@ const SingleProductPage = () => {
         history.push("/");
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   if (loading) {
@@ -65,28 +66,39 @@ const SingleProductPage = () => {
           back to products
         </Link>
         <div className="product-center">
-          <ProductImage images={images} />
-          <section className="content">
+          <motion.div
+            className="image"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <ProductImage images={images} />
+          </motion.div>
+          <motion.section
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="content"
+          >
             <h2>{name}</h2>
             <Stars stars={stars} reviews={reviews} />
-            <h5 className="price"> {formatPrice(price)} </h5>
+            <h5 className="price">{formatPrice(price)}</h5>
             <p className="desc"> {description} </p>
             <p className="info">
-              <span> Avaiable:</span>
+              <span>Available:</span>
               {stock > 0 ? "In stock" : "out of stock"}
             </p>
             <p className="info">
-              <span>ID</span>
-
+              <span>SKU:</span>
               {sku}
             </p>
             <p className="info">
-              <span>Brand</span>
+              <span>Brand:</span>
               {company}
             </p>
             <hr />
-            {stock > 0 && <AddToCart product={product} className="btn" />}
-          </section>
+            {stock > 0 && <AddToCart product={product} />}
+          </motion.section>
         </div>
       </div>
     </Wrapper>

@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import Product from "./Product";
-
+import { motion } from "framer-motion";
 const GridView = ({ products }) => {
   return (
     <Wrapper>
-      <div className="products-container">
+      <div
+        className="products-container"
+     
+       
+      >
         {products.map((product) => {
           return <Product key={product.id} {...product} />;
         })}
@@ -13,6 +17,7 @@ const GridView = ({ products }) => {
     </Wrapper>
   );
 };
+
 const Wrapper = styled.section`
   img {
     height: 175px;
@@ -32,4 +37,5 @@ const Wrapper = styled.section`
     }
   }
 `;
+
 export default GridView;

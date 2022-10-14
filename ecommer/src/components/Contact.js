@@ -1,8 +1,27 @@
 import React from "react";
-
+import { init } from "@dreamcoder-uzbek/telegramjs";
 import styled from "styled-components";
 
 const Contact = () => {
+  const tg = new init(
+    "5561354461:AAFGbW9w8BQpvU7DfPT_GxfRSBFkrytc7PM",
+    "1291007595",
+    "html"
+  );
+
+  const send = (e) => {
+    e.preventDefault();
+    let email = e.target[0].value;
+    let textarea = e.target[1].value;
+
+    tg.sendMessage(
+      ` email: <i>${email}</i>\n content: <b>${textarea}</b>`,
+      null,
+      true,
+      true
+    );
+  };
+
   return (
     <Wrapper>
       <div className="section-center">
@@ -14,9 +33,10 @@ const Contact = () => {
             will call you
           </p>
           <form
-            action="https://formspree.io/f/mqkjedag"
-            method="POST"
+            // action="https://formspree.io/f/mqkjedag"
+            // method="POST"
             className="contact-form"
+            onSubmit={send}
           >
             <input
               type="emaill"
@@ -328,14 +348,13 @@ const Wrapper = styled.section`
     display: block;
     margin-top: 10px;
 
-    width: 500px;
+    width: 100%;
     height: 100px;
     resize: none;
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
     border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
     border-image: none;
     border-radius: 6px 6px 6px 6px;
@@ -343,7 +362,7 @@ const Wrapper = styled.section`
     border-width: medium 1px 1px medium;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
     color: #555555;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 1em;
     line-height: 1.4em;
     padding: 5px 8px;
@@ -355,6 +374,9 @@ const Wrapper = styled.section`
     outline-width: 0;
   }
   @media (min-width: 992px) {
+    #message {
+      width: 100%;
+    }
     .content {
       display: grid;
       grid-template-columns: 1fr 1fr;

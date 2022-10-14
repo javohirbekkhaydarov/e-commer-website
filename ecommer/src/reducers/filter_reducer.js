@@ -9,7 +9,7 @@ import {
   CLEAR_FILTERS,
 } from "../actions";
 
-const filterReducer = (state, action) => {
+const filter_reducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
     let maxPrice = action.payload.map((p) => p.price);
     maxPrice = Math.max(...maxPrice);
@@ -21,29 +21,18 @@ const filterReducer = (state, action) => {
       filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
     };
   }
-
   if (action.type === SET_GRIDVIEW) {
-    return {
-      ...state,
-      grid_view: true,
-    };
+    return { ...state, grid_view: true };
   }
   if (action.type === SET_LISTVIEW) {
-    return {
-      ...state,
-      grid_view: false,
-    };
+    return { ...state, grid_view: false };
   }
   if (action.type === UPDATE_SORT) {
-    return {
-      ...state,
-      sort: action.payload,
-    };
+    return { ...state, sort: action.payload };
   }
   if (action.type === SORT_PRODUCTS) {
     const { sort, filtered_products } = state;
-
-    let tempProducts = [filtered_products];
+    let tempProducts = [...filtered_products];
     if (sort === "price-lowest") {
       tempProducts = tempProducts.sort((a, b) => {
         if (a.price < b.price) {
@@ -60,12 +49,12 @@ const filterReducer = (state, action) => {
     }
     if (sort === "name-a") {
       tempProducts = tempProducts.sort((a, b) => {
-        return a.name.localCompare(b.name);
+        return a.name.localeCompare(b.name);
       });
     }
     if (sort === "name-z") {
       tempProducts = tempProducts.sort((a, b) => {
-        return b.name.localCompare(a.name);
+        return b.name.localeCompare(a.name);
       });
     }
     return { ...state, filtered_products: tempProducts };
@@ -83,7 +72,7 @@ const filterReducer = (state, action) => {
 
     if (text) {
       tempProducts = tempProducts.filter((product) => {
-        return product.name.toLowercase().starWidth(text);
+        return product.name.toLowerCase().startsWith(text);
       });
     }
     if (category !== "all") {
@@ -101,14 +90,18 @@ const filterReducer = (state, action) => {
         return product.colors.find((c) => c === color);
       });
     }
+
     tempProducts = tempProducts.filter((product) => product.price <= price);
+
     if (shipping) {
       tempProducts = tempProducts.filter(
         (product) => product.shipping === true
       );
     }
+
     return { ...state, filtered_products: tempProducts };
   }
+
   if (action.type === CLEAR_FILTERS) {
     return {
       ...state,
@@ -123,6 +116,7 @@ const filterReducer = (state, action) => {
       },
     };
   }
-  throw new Error(` No matching "${action.type} - action type" please `);
+  throw new Error(`No matching "${action.type}" - action type`);
 };
-export default filterReducer;
+
+export default filter_reducer;

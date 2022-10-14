@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import bg2 from "../assets/hero-bcg-2.jpeg";
 import bg from "../assets/hero-bcg.jpeg";
-import { motion, useViewportScroll } from "framer-motion";
+import { motion,  } from "framer-motion";
 const Hero = () => {
-  const { scrollYProgress } = useViewportScroll();
+ 
   return (
     
     <Wrapper className="section-center">
