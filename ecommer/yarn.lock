@@ -1188,6 +1188,11 @@
   "resolved" "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.1.tgz"
   "version" "2.0.1"
 
+"@dreamcoder-uzbek/telegramjs@^1.2.5":
+  "integrity" "sha512-2uwIzGbg5XVTjt5Ng8YL2k6OMsyC53arc+n2p6Y9Mj9orxKldcuHwxvubtw2imDeoiAd6tUxp3avK9j7XEADCQ=="
+  "resolved" "https://registry.npmjs.org/@dreamcoder-uzbek/telegramjs/-/telegramjs-1.2.5.tgz"
+  "version" "1.2.5"
+
 "@emotion/is-prop-valid@^0.8.2":
   "integrity" "sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA=="
   "resolved" "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
@@ -5028,10 +5033,10 @@
   "resolved" "https://registry.npmjs.org/fraction.js/-/fraction.js-4.2.0.tgz"
   "version" "4.2.0"
 
-"framer-motion@^7.5.1":
-  "integrity" "sha512-shqLAFgYT7QMVomusesPurlq9pQGLO64PTbWdQPkMg2cHmxI0ISG9BajGY3krg56yhBMI7QP/3u54bs/To0mOA=="
-  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-7.5.1.tgz"
-  "version" "7.5.1"
+"framer-motion@^7.5.3":
+  "integrity" "sha512-VvANga9Z7bYtKMAsM/je81FwJDHfThOYywN04xVQ4OGdMVY09Bowx/q7nZd6XtytLuv6byc6GT1mYwag+SQ/nw=="
+  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-7.5.3.tgz"
+  "version" "7.5.3"
   dependencies:
     "@motionone/dom" "10.13.1"
     "framesync" "6.1.2"
