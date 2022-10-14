@@ -34,6 +34,7 @@ const CartContent = () => {
 
 const Wrapper = styled.section`
   .link-container {
+    
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;

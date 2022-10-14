@@ -35,6 +35,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    color: --clr-grey-3;
   }
   h2 {
     margin-bottom: 0;

@@ -53,6 +53,7 @@ const Wrapper = styled.article`
   justify-items: center;
   margin-bottom: 3rem;
   align-items: center;
+  width: 100%;
   .title {
     height: 100%;
     display: grid;
@@ -120,6 +121,7 @@ const Wrapper = styled.article`
     cursor: pointer;
   }
   @media (min-width: 776px) {
+    overflow-x: hidden;
     .subtotal {
       display: block;
       margin-bottom: 0;
@@ -132,7 +134,7 @@ const Wrapper = styled.article`
     }
     .price {
       display: block;
-      font-size: 1rem;
+      font-size: 14px;
       color: var(--clr-primary-5);
       font-weight: 400;
     }
@@ -142,8 +144,8 @@ const Wrapper = styled.article`
     .color {
       font-size: 0.85rem;
       span {
-        width: 0.75rem;
-        height: 0.75rem;
+        width: 0.5rem;
+        height: 0.5rem;
       }
     }
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
@@ -163,12 +165,12 @@ const Wrapper = styled.article`
     .amount-btns {
       width: 100px;
       button {
-        width: 1.5rem;
+        width: 0.5rem;
         height: 1rem;
-        font-size: 1rem;
+        font-size: 0.5rem;
       }
       h2 {
-        font-size: 1.5rem;
+        font-size: 0.5rem;
       }
     }
   }
