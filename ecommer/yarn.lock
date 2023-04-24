@@ -5128,7 +5128,7 @@
   "resolved" "https://registry.npmjs.org/fraction.js/-/fraction.js-4.2.0.tgz"
   "version" "4.2.0"
 
-"framer-motion@^7.5.3":
+"framer-motion@^7.5.1":
   "integrity" "sha512-VvANga9Z7bYtKMAsM/je81FwJDHfThOYywN04xVQ4OGdMVY09Bowx/q7nZd6XtytLuv6byc6GT1mYwag+SQ/nw=="
   "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-7.5.3.tgz"
   "version" "7.5.3"
