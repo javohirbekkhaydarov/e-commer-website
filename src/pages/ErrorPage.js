@@ -22,6 +22,9 @@ const Wrapper = styled.main`
   align-items: center;
   text-align: center;
   margin: 0 auto;
+img {
+  width: 100%;
+}
   #section {
     display: flex;
     flex-direction: column;
