@@ -113,6 +113,7 @@ const Wrapper = styled.section`
     padding: 8px;
     box-sizing: border-box;
     transition: 0.3s;
+    background: transparent;
   }
 
   .form-input:focus {
@@ -376,6 +377,7 @@ const Wrapper = styled.section`
     line-height: 1.4em;
     padding: 5px 8px;
     transition: background-color 0.2s ease 0s;
+    background: transparent;
   }
 
   textarea:focus {
