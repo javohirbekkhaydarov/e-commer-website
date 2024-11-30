@@ -1,29 +1,36 @@
 import React from "react";
 import { init } from "@dreamcoder-uzbek/telegramjs";
 import styled from "styled-components";
+import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
   const tg = new init(
     "5561354461:AAFGbW9w8BQpvU7DfPT_GxfRSBFkrytc7PM",
     "1291007595",
-    "html"
+    "html",
   );
 
   const send = (e) => {
     e.preventDefault();
-    let email = e.target[0].value;
+    let tgUsername = e.target[0].value;
     let textarea = e.target[1].value;
 
     tg.sendMessage(
-      ` email: <i>${email}</i>\n content: <b>${textarea}</b>`,
+      ` username: <i>@${tgUsername}</i>\n content: <b>${textarea}</b>`,
       null,
       true,
-      true
+      true,
     );
+    toast.success("Request submitted", {
+      position: "bottom-center",
+    });
+    e.target[0].value = "";
+    e.target[1].value = "";
   };
 
   return (
     <Wrapper>
+      <Toaster />
       <div className="section-center">
         <h3>take -20% sale </h3>
 
@@ -39,17 +46,19 @@ const Contact = () => {
             onSubmit={send}
           >
             <input
-              type="emaill"
+              type="username"
               name="_replyto"
               className="form-input"
-              placeholder="enter your email"
+              placeholder=" your telegram username"
               required
+              min="4"
+              autoComplete="off"
             />
             <textarea
               id="message"
               name="message"
               required
-              placeholder="enter your question"
+              placeholder=" your question"
             />
 
             <button type="submit" className="submit-btn">
@@ -267,7 +276,7 @@ const Wrapper = styled.section`
     width: 10rem;
     background: var(--clr-primary-5);
     border: 2px solid var(--clr-primary-7);
-    color: var(--clr-black);
+    color: white;
     cursor: pointer;
     line-height: 2;
     margin: 2 auto;

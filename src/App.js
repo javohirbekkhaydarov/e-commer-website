@@ -1,4 +1,4 @@
-import { AnimatePresence } from "framer-motion";
+  import { AnimatePresence } from "framer-motion";
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
