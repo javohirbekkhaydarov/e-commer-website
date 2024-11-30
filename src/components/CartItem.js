@@ -4,7 +4,7 @@ import { formatPrice } from "../utils/helpers";
 import AmountButton from "./AmountButton";
 import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../context/cart_context";
-
+import {Link} from 'react-router-dom'
 const CartItem = ({ id, image, name, color, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext();
   const increase = () => {
@@ -15,8 +15,9 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
   };
   return (
     <Wrapper>
-      <div className="title">
-        <img src={image} alt={name} />
+
+      <Link to={`/products/` + id} className="title">
+        <img className={'cart-image'} src={image} alt={name} />
         <div>
           <h5 className="name"> {name}</h5>
           <p className="color">
@@ -24,7 +25,7 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
             <span className="circle" style={{ background: color }}></span>
           </p>
         </div>
-      </div>
+      </Link>
       <h5 className="price">{formatPrice(price)}</h5>
       <AmountButton amount={amount} increase={increase} decrease={decrease} />
       <h5 className="subtotal">{formatPrice(price * amount)}</h5>
@@ -40,6 +41,11 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
 };
 
 const Wrapper = styled.article`
+  .cart-image {
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+  }
   .subtotal {
     display: none;
   }
@@ -61,6 +67,7 @@ const Wrapper = styled.article`
     align-items: center;
     text-align: left;
     gap: 1rem;
+    color: #617d98;
   }
   img {
     width: 100%;
@@ -69,6 +76,7 @@ const Wrapper = styled.article`
     border-radius: var(--radius);
     object-fit: cover;
   }
+  
   h5 {
     font-size: 0.75rem;
     margin-bottom: 0;
