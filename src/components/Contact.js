@@ -12,15 +12,18 @@ const Contact = () => {
 
   const send = (e) => {
     e.preventDefault();
-    let tgUsername = e.target[0].value;
-    let textarea = e.target[1].value;
-
+    let tgUsername = e.target[0].value.trim();
+    let textarea = e.target[1].value.trim();
+    if (tgUsername.startsWith("@")) {
+      tgUsername = tgUsername.slice(1);
+    }
     tg.sendMessage(
-      ` username: <i>@${tgUsername}</i>\n content: <b>${textarea}</b>`,
-      null,
-      true,
-      true,
+        ` username: <i>@${tgUsername}</i>\n content: <b>${textarea}</b>`,
+        null,
+        true,
+        true
     );
+
     toast.success("Request submitted", {
       position: "bottom-center",
     });
@@ -114,6 +117,7 @@ const Wrapper = styled.section`
     box-sizing: border-box;
     transition: 0.3s;
     background: transparent;
+    color: var(--clr-grey-5);
   }
 
   .form-input:focus {
