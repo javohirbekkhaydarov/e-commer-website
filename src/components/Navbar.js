@@ -26,10 +26,10 @@ const Navbar = () => {
   const [theme, setTheme] = useState(getStorageTheme());
 
   const toggleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
-    } else {
+    if (theme === "light-theme") {
       setTheme("dark-theme");
+    } else {
+      setTheme("light-theme");
     }
   };
 
@@ -43,24 +43,7 @@ const Navbar = () => {
         <div className="nav-header">
           {/* change icon */}
 
-          <button
-            type="button"
-            id="btn"
-            onClick={toggleTheme}
-            className={`${theme === "dark-theme" ? "show" : "hidden"}`}
-          >
-            &nbsp;
-            <FaMoon />
-          </button>
 
-          <button
-            type="button"
-            id="btn"
-            className={`${theme === "dark-theme" ? "hidden" : "show"}`}
-            onClick={toggleTheme}
-          >
-            <FaSun color="yellow" />
-          </button>
 
           <Link to="/">
             <img src={logo} alt="logo" />
@@ -79,7 +62,31 @@ const Navbar = () => {
             );
           })}
         </ul>
-        <CartButtons />
+        <div className="flex items-center justify-center">
+          <CartButtons />
+          <div className="theme_btn">
+            <button
+                type="button"
+                id="btn"
+                onClick={toggleTheme}
+                className={`${theme === "dark-theme" ? "show" : "hidden"} `}
+            >
+              &nbsp;
+              <FaMoon />
+            </button>
+            <button
+                type="button"
+                id="btn"
+                className={`${theme === "dark-theme" ? "hidden" : "show"}`}
+                onClick={toggleTheme}
+            >
+              <FaSun color="yellow" />
+            </button>
+          </div>
+
+
+        </div>
+
       </div>
     </NavContainer>
   );

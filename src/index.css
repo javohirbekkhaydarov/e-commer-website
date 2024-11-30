@@ -77,6 +77,22 @@ ul {
   list-style-type: none;
   
 }
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.theme_btn {
+  height: 20px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 a {
   text-decoration: none;
 }
