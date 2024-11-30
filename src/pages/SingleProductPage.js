@@ -28,6 +28,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+
   }, [id]);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const SingleProductPage = () => {
     company,
     images,
   } = product;
-
+  document.title = name || 'Comfy Sloth'
   return (
     <Wrapper>
       <PageHero title={name} product />
